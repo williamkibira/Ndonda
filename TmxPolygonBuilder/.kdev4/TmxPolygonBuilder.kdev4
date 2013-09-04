@@ -1,0 +1,33 @@
+[Buildset]
+BuildItems=@Variant(\x00\x00\x00\t\x00\x00\x00\x00\x01\x00\x00\x00\x0b\x00\x00\x00\x00\x01\x00\x00\x00"\x00T\x00m\x00x\x00P\x00o\x00l\x00y\x00g\x00o\x00n\x00B\x00u\x00i\x00l\x00d\x00e\x00r)
+
+[CMake]
+BuildDirs=/home/william/projects/TmxPolygonBuilder/build
+CMakeDir=/usr/share/cmake/Modules
+Current CMake Binary=file:///usr/bin/cmake
+CurrentBuildDir=file:///home/william/projects/TmxPolygonBuilder/build
+CurrentBuildType=Debug
+CurrentInstallDir=
+Extra Arguments=
+ProjectRootRelative=./
+
+[Launch]
+Launch Configurations=Launch Configuration 0
+
+[Launch][Launch Configuration 0]
+Configured Launch Modes=execute
+Configured Launchers=nativeAppLauncher
+Name=tmxpolygonbuilder
+Type=Native Application
+
+[Launch][Launch Configuration 0][Data]
+Configured from ProjectItem=TmxPolygonBuilder,tmxpolygonbuilder
+Project Target=TmxPolygonBuilder,tmxpolygonbuilder
+Working Directory=file:///home/william/projects/TmxPolygonBuilder/build/
+isExecutable=false
+
+[MakeBuilder]
+Number Of Jobs=1
+
+[Project]
+VersionControlSupport=kdevgit

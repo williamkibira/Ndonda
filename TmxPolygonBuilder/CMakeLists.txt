@@ -1,0 +1,8 @@
+project(tmxpolygonbuilder)
+
+add_executable(tmxpolygonbuilder audiomanager.cpp ground.cpp input.cpp camera.cpp character.cpp collisiondetection.cpp convertutililty.cpp groundbody.cpp simulator.cpp tmxbodyloader.cpp staticbody.cpp dynamicbody.cpp body.cpp main.cpp)
+include_directories(fmodex/inc)
+find_library(AUDIOLIB fmodex ./fmodex/lib )
+
+target_link_libraries(tmxpolygonbuilder  Box2D tmxparser z tinyxml SDL2 GL GLU glut ${AUDIOLIB})
+

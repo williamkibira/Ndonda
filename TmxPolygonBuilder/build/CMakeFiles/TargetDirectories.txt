@@ -1,0 +1,1 @@
+/home/william/projects/TmxPolygonBuilder/build/CMakeFiles/tmxpolygonbuilder.dir
