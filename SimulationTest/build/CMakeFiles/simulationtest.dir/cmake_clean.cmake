@@ -1,0 +1,40 @@
+FILE(REMOVE_RECURSE
+  "CMakeFiles/simulationtest.dir/Input/mouseinput.o"
+  "CMakeFiles/simulationtest.dir/Tests/Butida/butida.o"
+  "CMakeFiles/simulationtest.dir/Tests/Butida/wall.o"
+  "CMakeFiles/simulationtest.dir/MobileSimulator/mobilesimulator.o"
+  "CMakeFiles/simulationtest.dir/Input/touchscreeninput.o"
+  "CMakeFiles/simulationtest.dir/Input/keyboardinput.o"
+  "CMakeFiles/simulationtest.dir/Tests/Butida/stone.o"
+  "CMakeFiles/simulationtest.dir/Tests/Theo/balls.o"
+  "CMakeFiles/simulationtest.dir/Tests/Theo/ground.o"
+  "CMakeFiles/simulationtest.dir/Simulator/textrenderer.o"
+  "CMakeFiles/simulationtest.dir/Simulator/simulator.o"
+  "CMakeFiles/simulationtest.dir/Tests/Theo/theojansen.o"
+  "CMakeFiles/simulationtest.dir/Tests/Theo/leg.o"
+  "CMakeFiles/simulationtest.dir/Tools/bodyconstructor.o"
+  "CMakeFiles/simulationtest.dir/Tools/debugdraw.o"
+  "CMakeFiles/simulationtest.dir/Tests/Car/teeter.o"
+  "CMakeFiles/simulationtest.dir/Tests/Car/ground.o"
+  "CMakeFiles/simulationtest.dir/Tests/Car/car.o"
+  "CMakeFiles/simulationtest.dir/Tests/Car/bridge.o"
+  "CMakeFiles/simulationtest.dir/Tests/Car/box.o"
+  "CMakeFiles/simulationtest.dir/main.o"
+  "CMakeFiles/simulationtest.dir/Tools/collisiondetection.o"
+  "CMakeFiles/simulationtest.dir/Tools/convertutililty.o"
+  "CMakeFiles/simulationtest.dir/Engine/audiomanager.o"
+  "CMakeFiles/simulationtest.dir/Engine/body.o"
+  "CMakeFiles/simulationtest.dir/Engine/drawablelayer.o"
+  "CMakeFiles/simulationtest.dir/Engine/graphicsmgr.o"
+  "CMakeFiles/simulationtest.dir/Engine/groundbody.o"
+  "CMakeFiles/simulationtest.dir/Engine/mapdrawer.o"
+  "CMakeFiles/simulationtest.dir/Engine/staticbody.o"
+  "CMakeFiles/simulationtest.dir/Views/camera.o"
+  "simulationtest.pdb"
+  "simulationtest"
+)
+
+# Per-language clean rules from dependency scanning.
+FOREACH(lang CXX)
+  INCLUDE(CMakeFiles/simulationtest.dir/cmake_clean_${lang}.cmake OPTIONAL)
+ENDFOREACH(lang)

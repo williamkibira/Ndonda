@@ -1,0 +1,119 @@
+/*
+    Copyright (c) 2013, <copyright holder> <email>
+    All rights reserved.
+
+    Redistribution and use in source and binary forms, with or without
+    modification, are permitted provided that the following conditions are met:
+        * Redistributions of source code must retain the above copyright
+        notice, this list of conditions and the following disclaimer.
+        * Redistributions in binary form must reproduce the above copyright
+        notice, this list of conditions and the following disclaimer in the
+        documentation and/or other materials provided with the distribution.
+        * Neither the name of the <organization> nor the
+        names of its contributors may be used to endorse or promote products
+        derived from this software without specific prior written permission.
+
+    THIS SOFTWARE IS PROVIDED BY <copyright holder> <email> ''AS IS'' AND ANY
+    EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+    WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+    DISCLAIMED. IN NO EVENT SHALL <copyright holder> <email> BE LIABLE FOR ANY
+    DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+    (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+    LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+    ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+    (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+    SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+
+#include "ground.h"
+
+Ground0::Ground0(b2World* world)
+{
+  this->world = world;
+  this->ground = NULL;
+  construct();
+  convert = new ConvertUtililty();
+  construct(); 
+}
+b2Body* Ground0::getBody()
+{
+  return ground;
+}
+
+void Ground0::construct()
+{
+  
+  ground = world->CreateBody(&bd);
+  fd.shape = &shape;
+  fd.density = 0.0f;
+  fd.friction = 0.6f;
+  
+  shape.Set(b2Vec2(-20.0f, 0.0f), b2Vec2(20.0f, 0.0f));
+  ground->CreateFixture(&fd);
+  
+  float32 hs[10] = {0.25f, 1.0f, 4.0f, 0.0f, 0.0f, -1.0f, -2.0f, -2.0f, -1.25f, 0.0f};
+  
+  float32 x = 20.0f, y1 = 0.0f, dx = 5.0f;
+  
+  for (int32 i = 0; i < 10; ++i)
+  {
+    float32 y2 = hs[i];
+    shape.Set(b2Vec2(x, y1), b2Vec2(x + dx, y2));
+    ground->CreateFixture(&fd);
+    y1 = y2;
+    x += dx;
+  }
+  
+  for (int32 i = 0; i < 10; ++i)
+  {
+    float32 y2 = hs[i];
+    shape.Set(b2Vec2(x, y1), b2Vec2(x + dx, y2));
+    ground->CreateFixture(&fd);
+    y1 = y2;
+    x += dx;
+  }
+  
+  shape.Set(b2Vec2(x, 0.0f), b2Vec2(x + 40.0f, 0.0f));
+  ground->CreateFixture(&fd);
+  
+  x += 80.0f;
+  shape.Set(b2Vec2(x, 0.0f), b2Vec2(x + 40.0f, 0.0f));
+  ground->CreateFixture(&fd);
+  
+  x += 40.0f;
+  shape.Set(b2Vec2(x, 0.0f), b2Vec2(x + 10.0f, 5.0f));
+  ground->CreateFixture(&fd);
+  
+  x += 20.0f;
+  shape.Set(b2Vec2(x, 0.0f), b2Vec2(x + 40.0f, 0.0f));
+  ground->CreateFixture(&fd);
+  
+  x += 40.0f;
+  shape.Set(b2Vec2(x, 0.0f), b2Vec2(x, 20.0f));
+  ground->CreateFixture(&fd);
+}
+void Ground0::draw()
+{ GM_POINT* point  = convert->convertB2Vec2ToGM_Point(ground->GetPosition());
+  glTranslatef(point->x,point->y,0.0f);
+  glBegin(GL_LINES);
+  for(b2Fixture* f = ground->GetFixtureList(); f; f = f->GetNext()){
+  
+  b2EdgeShape* edgeshape = (b2EdgeShape*)f->GetShape();
+  { 
+    b2Vec2 point1 = edgeshape->m_vertex1;
+    b2Vec2 point2 = edgeshape->m_vertex2;
+    
+    glVertex2f(point1.x, point1.y);
+    glVertex2f(point2.x, point2.y);
+    
+  }
+}
+  glEnd();
+}
+Ground0::~Ground0()
+{
+  
+}
+
+

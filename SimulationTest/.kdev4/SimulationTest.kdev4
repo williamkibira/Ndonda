@@ -1,0 +1,41 @@
+[Buildset]
+BuildItems=@Variant(\x00\x00\x00\t\x00\x00\x00\x00\x01\x00\x00\x00\x0b\x00\x00\x00\x00\x01\x00\x00\x00\x1c\x00S\x00i\x00m\x00u\x00l\x00a\x00t\x00i\x00o\x00n\x00T\x00e\x00s\x00t)
+
+[CMake]
+BuildDirs=/home/william/projects/SimulationTest/build
+CMakeDir=/usr/share/cmake/Modules
+Current CMake Binary=file:///usr/bin/cmake
+CurrentBuildDir=file:///home/william/projects/SimulationTest/build
+CurrentBuildType=Debug
+CurrentInstallDir=
+Extra Arguments=
+ProjectRootRelative=./
+
+[Launch]
+Launch Configurations=Launch Configuration 0,Launch Configuration 1
+
+[Launch][Launch Configuration 0]
+Configured Launch Modes=execute
+Configured Launchers=nativeAppLauncher
+Name=simulationtest
+Type=Native Application
+
+[Launch][Launch Configuration 0][Data]
+Project Target=SimulationTest,simulationtest
+Working Directory=file:///home/william/projects/SimulationTest/build/
+isExecutable=false
+
+[Launch][Launch Configuration 1]
+Configured Launch Modes=execute
+Configured Launchers=nativeAppLauncher
+Name=simulationtest
+Type=Native Application
+
+[Launch][Launch Configuration 1][Data]
+Configured from ProjectItem=SimulationTest,simulationtest
+Project Target=SimulationTest,simulationtest
+Working Directory=file:///home/william/projects/SimulationTest/build/
+isExecutable=false
+
+[Project]
+VersionControlSupport=kdevgit

@@ -1,0 +1,94 @@
+/*
+    Copyright (c) 2013, <copyright holder> <email>
+    All rights reserved.
+
+    Redistribution and use in source and binary forms, with or without
+    modification, are permitted provided that the following conditions are met:
+        * Redistributions of source code must retain the above copyright
+        notice, this list of conditions and the following disclaimer.
+        * Redistributions in binary form must reproduce the above copyright
+        notice, this list of conditions and the following disclaimer in the
+        documentation and/or other materials provided with the distribution.
+        * Neither the name of the <organization> nor the
+        names of its contributors may be used to endorse or promote products
+        derived from this software without specific prior written permission.
+
+    THIS SOFTWARE IS PROVIDED BY <copyright holder> <email> ''AS IS'' AND ANY
+    EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+    WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+    DISCLAIMED. IN NO EVENT SHALL <copyright holder> <email> BE LIABLE FOR ANY
+    DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+    (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+    LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+    ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+    (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+    SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+
+#include <Box2D/Box2D.h>
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_opengl.h>
+#include <math.h>
+#include "../../Settings/constants.h"
+#include "../../Tools/convertutililty.h"
+#include "../../Settings/gamepoint.h"
+#include "ground.h"
+#include "teeter.h"
+#include "bridge.h"
+#include "box.h"
+
+
+#ifndef CAR_H
+#define CAR_H
+
+#define _USE_MATH_DEFINES
+
+class Car
+{
+  
+public:
+  Car(b2World* world);
+  void buildcar();
+  
+  void engagecar();
+  void draw();
+  void drawWheel(GM_POINT* pos,float radius,float angle);
+  b2Vec2 getPosition();
+  float getAngle();
+  virtual ~Car();
+  
+  void move(int key);
+private:
+  b2World* world;
+  b2CircleShape circle;
+  b2PolygonShape chassis;
+  b2WheelJointDef jd;
+  b2Vec2 axis;
+  b2FixtureDef fd;
+  b2BodyDef bd;
+  
+  
+  
+  
+  
+  b2Body* m_car;
+  b2Body* m_wheel1;
+  b2Body* m_wheel2;
+  
+  float32 m_hz;
+  float32 m_zeta;
+  float32 m_speed;
+  b2WheelJoint* m_spring1;
+  b2WheelJoint* m_spring2;
+  
+  b2Vec2* vertices;
+  ConvertUtililty* convert;
+  
+  Teeter* teeter;
+  Ground0* ground;
+  Box* box;
+  Bridge* bridge;
+};
+
+#endif // CAR_H
