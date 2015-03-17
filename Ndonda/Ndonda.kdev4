@@ -1,0 +1,4 @@
+[Project]
+Name=Ndonda
+Manager=KDevCMakeManager
+VersionControl=kdevgit
