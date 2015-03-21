@@ -80,6 +80,27 @@ void Polygon::drawPolygon()
   }
   
 }
+void Polygon::checkedPolygon()
+{
+  if(checked != true){
+     checked = true;
+  }
+}
+void Polygon::selectedPolygon()
+{
+  if(selected != true){
+    selected = true;
+  }
+}
+
+bool Polygon::isChecked()
+{
+  return selected;
+}
+bool Polygon::isSelected()
+{
+  return checked;
+}
 
 void Polygon::drawDot(float radius, int segments, float x_pos, float y_pos)
 {

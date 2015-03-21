@@ -37,13 +37,21 @@ public:
   int getEdgeCount();
   void buildEdges();
   void blitPicture();
+  bool isSelected();
+  bool isChecked();
   virtual ~Polygon();
+  void checkedPolygon();
+  void selectedPolygon();
+  void setToSelectedState();
+  void setToUnselectedState();
 private:
   std::vector<Vector2Df&> Points;
   std::list<Vector2Df&>edges;
   Vector2Df* center;
   std::string name;
   std::string picturePath;
+  bool selected;
+  bool checked;
 };
 
 #endif // POLYGON_H
